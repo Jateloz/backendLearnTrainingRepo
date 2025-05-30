@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Payment - House Rental</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+        }
+
+        body {
+          font-family: 'Poppins', sans-serif;
+          background: linear-gradient(145deg, #1e1e2f, #292945);
+          color: #fff;
+          min-height: 100vh;
+          display: flex;
+          flex-direction: column;
+          animation: fadeIn 1.2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+          0% { opacity: 0; transform: translateY(20px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+
+        header {
+          padding: 30px 20px;
+          text-align: center;
+          background-color: rgba(255, 255, 255, 0.05);
+          backdrop-filter: blur(10px);
+          box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+        }
+
+        header h1 {
+          font-size: 2.5rem;
+          color: #e0e0ff;
+        }
+
+        nav {
+          margin-top: 10px;
+        }
+
+        nav a {
+          color: #c9bfff;
+          margin: 0 12px;
+          text-decoration: none;
+          font-weight: 500;
+          transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+          color: #f3a9ff;
+        }
+
+        .payment-container {
+          flex: 1;
+          max-width: 600px;
+          margin: 60px auto;
+          background: rgba(255, 255, 255, 0.06);
+          padding: 40px;
+          border-radius: 25px;
+          backdrop-filter: blur(15px);
+          box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+          animation: slideUp 1.2s ease;
+        }
+
+        @keyframes slideUp {
+          from { transform: translateY(50px); opacity: 0; }
+          to { transform: translateY(0); opacity: 1; }
+        }
+
+        h2 {
+          text-align: center;
+          margin-bottom: 30px;
+          color: #e8e8ff;
+          font-weight: 600;
+        }
+
+        label {
+          display: block;
+          margin-top: 15px;
+          margin-bottom: 5px;
+          font-weight: 500;
+          color: #ddd;
+        }
+
+        input {
+          width: 100%;
+          padding: 12px;
+          border: none;
+          border-radius: 10px;
+          background-color: #ffffff10;
+          color: #fff;
+          font-size: 1rem;
+          margin-bottom: 15px;
+          transition: 0.3s ease;
+        }
+
+        input::placeholder {
+          color: #aaa;
+        }
+
+        input:focus {
+          outline: none;
+          background-color: #ffffff20;
+          box-shadow: 0 0 10px #e0bfff;
+        }
+
+        button, .gateway-btn {
+          width: 100%;
+          padding: 14px;
+          background-color: #9e69fd;
+          border: none;
+          font-size: 1.1rem;
+          font-weight: bold;
+          color: #fff;
+          border-radius: 10px;
+          cursor: pointer;
+          margin-top: 15px;
+          transition: all 0.3s ease;
+        }
+
+        button:hover, .gateway-btn:hover {
+          background-color: #b980ff;
+          transform: scale(1.02);
+        }
+
+        .card-icons {
+          text-align: center;
+          margin: 20px 0;
+        }
+
+        .card-icons img {
+          height: 28px;
+          margin: 0 10px;
+          filter: grayscale(80%) brightness(1.5);
+        }
+
+        .gateways {
+          margin-top: 25px;
+        }
+
+        .gateway-btn img {
+          height: 20px;
+          margin-right: 8px;
+          vertical-align: middle;
+        }
+
+        footer {
+          text-align: center;
+          padding: 20px;
+          font-size: 0.9rem;
+          color: #bbb;
+          background-color: rgba(255,255,255,0.04);
+          margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Complete Your Payment</h1>
+    <nav>
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/about}">About</a>
+        <a th:href="@{properties}">Properties</a>
+        <a th:href="@{/booking}">Book</a>
+        <a th:href="@{/contact}">Contact</a>
+        <a th:href="@{/logout}">Logout</a>
+        <a th:href="@{/payment}">Payment</a>
+        <a th:href="@{/reports}">Reports</a>
+    </nav>
+</header>
+
+<div class="payment-container"><!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Payment - House Rental</title>
+        <style>
+            body {
+              margin: 0;
+              font-family: 'Segoe UI', sans-serif;
+              background: linear-gradient(to bottom right, #1e3c72, #2a5298);
+              color: #fff;
+              display: flex;
+              flex-direction: column;
+              min-height: 100vh;
+            }
+
+            header {
+              background: rgba(0, 0, 0, 0.3);
+              padding: 40px 20px;
+              text-align: center;
+            }
+
+            nav a {
+              color: #fff;
+              margin: 0 14px;
+              text-decoration: none;
+              font-weight: bold;
+            }
+
+            nav a:hover {
+              text-decoration: underline;
+            }
+
+            .payment-container {
+              flex: 1;
+              max-width: 600px;
+              margin: 50px auto;
+              background: rgba(255, 255, 255, 0.1);
+              padding: 40px;
+              border-radius: 20px;
+              box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            }
+
+            h2 {
+              text-align: center;
+              color: #e0f7fa;
+              margin-bottom: 30px;
+            }
+
+            label {
+              display: block;
+              margin-bottom: 6px;
+              font-weight: bold;
+              color: #e1f5fe;
+            }
+
+            input {
+              width: 100%;
+              padding: 14px;
+              margin-bottom: 20px;
+              border: none;
+              border-radius: 10px;
+              background: #e1f5fe;
+              color: #01579b;
+              font-size: 1rem;
+            }
+
+            input:focus {
+              outline: none;
+              background: #b3e5fc;
+              box-shadow: 0 0 8px rgba(0, 114, 255, 0.4);
+            }
+
+            .btn {
+              width: 100%;
+              padding: 16px;
+              background: #00e5ff;
+              border: none;
+              font-size: 1.2rem;
+              font-weight: bold;
+              color: #01579b;
+              border-radius: 10px;
+              cursor: pointer;
+              transition: background 0.3s ease, transform 0.2s ease;
+              margin-bottom: 15px;
+            }
+
+            .btn:hover {
+              background: #00bcd4;
+              transform: scale(1.03);
+            }
+
+            .card-icons {
+              text-align: center;
+              margin-bottom: 20px;
+            }
+
+            .card-icons img {
+              height: 30px;
+              margin: 0 10px;
+              filter: brightness(0) invert(1);
+            }
+
+            footer {
+              text-align: center;
+              padding: 20px;
+              background: rgba(0, 0, 0, 0.3);
+              color: #e0f7fa;
+            }
+
+            .btn-mpesa {
+              background: #1bbd36;
+              color: white;
+            }
+
+            .btn-mpesa:hover {
+              background: #148f2e;
+            }
+        </style>
+    </head>
+    <body>
+
+    <header>
+        <h1>Secure Payment</h1>
+        <nav>
+            <a th:href="@{/}">Home</a>
+            <a th:href="@{/about}">About</a>
+            <a th:href="@{properties}">Properties</a>
+            <a th:href="@{/booking}">Book</a>
+            <a th:href="@{/contact}">Contact</a>
+            <a th:href="@{/logout}">Logout</a>
+            <a th:href="@{/payment}">Payment</a>
+            <a th:href="@{/reports}">Reports</a>
+        </nav>
+    </header>
+
+    <div class="payment-container">
+        <h2>Confirm & Pay</h2>
+
+        <div class="card-icons">
+            <img src="https://img.icons8.com/color/48/visa.png" alt="Visa" />
+            <img src="https://img.icons8.com/color/48/mastercard.png" alt="Mastercard" />
+            <img src="https://img.icons8.com/color/48/amex.png" alt="Amex" />
+        </div>
+
+        <form action="#">
+            <label for="amount">Amount (KES)</label>
+            <input type="text" id="amount" name="amount" placeholder="e.g. 12000" required />
+
+            <label for="cardname">Cardholder Name</label>
+            <input type="text" id="cardname" name="cardname" placeholder="Full Name" required />
+
+            <label for="cardnumber">Card Number</label>
+            <input type="text" id="cardnumber" name="cardnumber" placeholder="xxxx-xxxx-xxxx-xxxx" maxlength="19" required />
+
+            <label for="exp">Expiration Date</label>
+            <input type="text" id="exp" name="exp" placeholder="MM/YY" required />
+
+            <label for="cvv">CVV</label>
+            <input type="password" id="cvv" name="cvv" placeholder="123" maxlength="4" required />
+
+            <button type="submit" class="btn">Pay Now</button>
+        </form>
+
+        <a th:href="@{/mpesa}"><button >Pay with M-Pesa</button></a>
+    </div>
+
+    <div class="gateways">
+        <button class="gateway-btn" onclick="alert('Redirecting to PayPal...')">
+            <img src="https://img.icons8.com/color/48/paypal.png" alt="PayPal" />
+            Pay with PayPal
+        </button>
+
+        <button class="gateway-btn" onclick="alert('Redirecting to Stripe...')">
+            <img src="https://img.icons8.com/ios-filled/50/stripe.png" alt="Stripe" />
+            Pay with Stripe
+        </button>
+    </div>
+
+    <footer>
+        &copy; 2025 House Rental. Your payment is safe with us.
+    </footer>
+
+    </body>
+    </html>
+    <h2>Secure Checkout</h2>
+</div>
+
+<footer>
+    &copy; 2025 House Rental. All rights reserved. Secure encrypted transaction.
+</footer>
+
+</body>
+</html>

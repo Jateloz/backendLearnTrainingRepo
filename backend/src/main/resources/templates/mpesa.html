@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>M-Pesa Payment - House Rental</title>
+    <style>
+        body {
+          margin: 0;
+          font-family: 'Segoe UI', sans-serif;
+          background: linear-gradient(to bottom right, #0f2027, #203a43, #2c5364);
+          color: #fff;
+          display: flex;
+          flex-direction: column;
+          min-height: 100vh;
+        }
+
+        header {
+          background: rgba(0, 0, 0, 0.3);
+          padding: 40px 20px;
+          text-align: center;
+        }
+
+        nav a {
+          color: #fff;
+          margin: 0 14px;
+          text-decoration: none;
+          font-weight: bold;
+        }
+
+        nav a:hover {
+          text-decoration: underline;
+        }
+
+        .container {
+          flex: 1;
+          max-width: 500px;
+          margin: 50px auto;
+          background: rgba(255, 255, 255, 0.1);
+          padding: 40px;
+          border-radius: 20px;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        h2 {
+          text-align: center;
+          color: #b2dfdb;
+          margin-bottom: 30px;
+        }
+
+        label {
+          display: block;
+          margin-bottom: 6px;
+          font-weight: bold;
+          color: #e0f2f1;
+        }
+
+        input {
+          width: 100%;
+          padding: 14px;
+          margin-bottom: 20px;
+          border: none;
+          border-radius: 10px;
+          background: #e0f2f1;
+          color: #004d40;
+          font-size: 1rem;
+        }
+
+        input:focus {
+          outline: none;
+          background: #b2dfdb;
+          box-shadow: 0 0 8px rgba(0, 230, 118, 0.4);
+        }
+
+        button {
+          width: 100%;
+          padding: 16px;
+          background: #1de9b6;
+          border: none;
+          font-size: 1.2rem;
+          font-weight: bold;
+          color: #004d40;
+          border-radius: 10px;
+          cursor: pointer;
+          transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+          background: #00bfa5;
+          transform: scale(1.03);
+        }
+
+        footer {
+          text-align: center;
+          padding: 20px;
+          background: rgba(0, 0, 0, 0.3);
+          color: #b2dfdb;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>M-Pesa Payment</h1>
+    <nav>
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{properties}">Properties</a>
+        <a th:href="@{/booking}">Book</a>
+        <a th:href="@{/payment}">Payment</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h2>Enter M-Pesa Details</h2>
+
+    <form action="/mpesaPayment" method="post" th:object="${mpesaPayment}">
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="name" placeholder="Your Name" required/>
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="e.g. 07XXXXXXXX" required/>
+
+        <label for="date">Date</label>
+        <input type="date" id="date" name="date" placeholder="e.g. 04/07/2010" required/>
+
+        <label for="transaction">Transaction Code</label>
+        <input type="text" id="transaction" name="transaction" placeholder="e.g. TE911NFXXX" required/>
+
+        <label for="amount">Amount (KES)</label>
+        <input type="number" id="amount" name="amount" placeholder="e.g. 12000" required/>
+
+        <button type="submit">Confirm Payment</button>
+    </form>
+</div>
+
+<footer>
+    &copy; 2025 House Rental. Securely powered by M-Pesa integration.
+</footer>
+
+</body>
+</html>

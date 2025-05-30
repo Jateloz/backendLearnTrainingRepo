@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reports - House Rental</title>
+    <meta http-equiv="refresh" content="10">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+    <style>
+        body {
+          font-family: 'Poppins', sans-serif;
+          background: linear-gradient(135deg, #1c1f2f, #2e3455);
+          color: #f2f2f2;
+          margin: 0;
+          padding: 0;
+        }
+
+        header {
+          background-color: #232842;
+          padding: 30px;
+          text-align: center;
+          color: #fff;
+          box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        h1, h2 {
+          margin-bottom: 10px;
+        }
+
+        .container {
+          max-width: 1100px;
+          margin: 40px auto;
+          padding: 20px;
+          background: rgba(255, 255, 255, 0.05);
+          border-radius: 15px;
+          backdrop-filter: blur(10px);
+          box-shadow: 0 0 30px rgba(0,0,0,0.4);
+        }
+
+        .chart-placeholder {
+          height: 200px;
+          width: 100%;
+          background: repeating-linear-gradient(
+            135deg,
+            #a265ff,
+            #a265ff 10px,
+            #c690ff 10px,
+            #c690ff 20px
+          );
+          border-radius: 12px;
+          margin-bottom: 40px;
+          overflow: hidden;
+          position: relative;
+          object-fit: cover;
+          animation: pulse 2s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+          0% { opacity: 1; }
+          50% { opacity: 0.7; }
+          100% { opacity: 1; }
+        }
+
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          margin-top: 20px;
+          background-color: #2a2e47;
+          color: #fff;
+          border-radius: 12px;
+          overflow: hidden;
+        }
+
+        button {
+        width: 100%;
+        padding: 14px;
+        background: #2196f3;
+        border: none
+        border-radius: 8px;
+        color: white;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: background 0.3s;
+        }
+
+        table th, table td {
+          padding: 14px 20px;
+          text-align: left;
+          border-bottom: 1px solid #40446b;
+        }
+
+        table th {
+          background-color: #353a5b;
+        }
+
+        .download-btn {
+          margin-top: 20px;
+          background-color: #6e81f2;
+          border: none;
+          padding: 12px 24px;
+          color: #fff;
+          border-radius: 10px;
+          cursor: not-allowed;
+          font-weight: 600;
+          display: inline-block;
+        }
+
+        .download-btn::after {
+          content: " (JS needed)";
+          font-size: 0.85em;
+          opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Reports Dashboard</h1>
+    <p>Track rental activity, payments and statistics</p>
+    <nav>
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/about}">About</a>
+        <a th:href="@{properties}">Properties</a>
+        <a th:href="@{/booking}">Book</a>
+        <a th:href="@{/contact}">Contact</a>
+        <a th:href="@{/logout}">Logout</a>
+        <a th:href="@{/payment}">Payment</a>
+        <a th:href="@{/reports}">Reports</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h2>Transaction Overview (Bar Chart)</h2>
+    <div class="chart-placeholder">
+        <img src="/reports/chart" alt="Bar Chart of Transactions">
+    </div>
+
+    <div>
+    <h2>Recent Transactions</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Date</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Transaction Code</th>
+            <th>Amount</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="p : ${payments}">
+            <td th:text="${#dates.format(p.date,'yyyy-MM-dd')}"></td>
+            <td th:text="${p.name}"></td>
+            <td th:text="${p.phone}"></td>
+            <td th:text="${p.transaction}"></td>
+            <td th:text="${p.amount}"></td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+
+    <div>
+        <a href="/reports/download">
+            <button>Download as CSV</button>
+        </a>
+    </div>
+</div>
+</body>
+</html>

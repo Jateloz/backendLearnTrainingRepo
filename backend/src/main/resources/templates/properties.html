@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Properties - House Rental</title>
+    <style>
+        body {
+          margin: 0;
+          font-family: 'Poppins', sans-serif;
+          background: linear-gradient(to right, #e3f2fd, #ffffff);
+          color: #333;
+        }
+        header {
+          background: linear-gradient(to right, #2193b0, #6dd5ed);
+          color: white;
+          padding: 40px 20px;
+          text-align: center;
+        }
+        nav a {
+          color: white;
+          margin: 0 12px;
+          text-decoration: none;
+          font-weight: 600;
+        }
+        nav a:hover {
+          text-decoration: underline;
+        }
+        .container {
+          max-width: 1200px;
+          margin: 40px auto;
+          padding: 0 20px;
+        }
+        .property-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 25px;
+        }
+        .property-card {
+          background: white;
+          border-radius: 12px;
+          overflow: hidden;
+          box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+          transition: transform 0.3s;
+        }
+        .property-card:hover {
+          transform: translateY(-5px);
+        }
+        .property-card img {
+          width: 100%;
+          height: 180px;
+          object-fit: cover;
+        }
+        .property-info {
+          padding: 15px;
+        }
+        .property-info h3 {
+          margin: 0;
+          color: #0077b6;
+        }
+        .property-info p {
+          font-size: 0.95rem;
+          color: #666;
+          margin: 10px 0;
+        }
+        .property-info span {
+          font-weight: bold;
+          color: #28a745;
+        }
+        footer {
+          background: #1c2b36;
+          color: white;
+          text-align: center;
+          padding: 20px;
+          margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Our Properties</h1>
+    <nav>
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/about}">About</a>
+        <a th:href="@{properties}">Properties</a>
+        <a th:href="@{/booking}">Book</a>
+        <a th:href="@{/contact}">Contact</a>
+        <a th:href="@{/payment}">Payment</a>
+        <a th:href="@{/reports}">Reports</a>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="property-grid">
+        <div class="property-card">
+            <img src="/images/contemporary-urban-apartments-with-rooftop-greenery.jpg" alt="House 1">
+            <div class="property-info">
+                <h3>Modern Apartment</h3>
+                <p>2 Bedroom | 2 Bath | Nairobi West</p>
+                <span>KES 45,000/month</span>
+            </div>
+        </div>
+        <div class="property-card">
+            <img src="/images/what-luxury-villas-will-be-ready-in-2025.png" alt="House 2">
+            <div class="property-info">
+                <h3>Luxury Villa</h3>
+                <p>4 Bedroom | 3 Bath | Karen</p>
+                <span>KES 120,000/month</span>
+            </div>
+        </div>
+        <div class="property-card">
+            <img src="/images/cfm2s0aro8yl60a58e0393d5e.jpg" alt="House 3">
+            <div class="property-info">
+                <h3>Single Room Bedsitter</h3>
+                <p>1 Room | Shared Bath | Roysambu</p>
+                <span>KES 10,000/month</span>
+            </div>
+        </div>
+        <div class="property-card">
+            <img src="/images/509547813.jpg" alt="House 4">
+            <div class="property-info">
+                <h3>Studio Apartment</h3>
+                <p>1 Bedroom | 1 Bath | Kilimani</p>
+                <span>KES 25,000/month</span>
+            </div>
+        </div>
+        <div class="property-card">
+            <img src="/images/583874178.jpg" alt="House 3">
+            <div class="property-info">
+                <h3>Executive Studio Apartment</h3>
+                <p>Fully Furnished | Balcony | Kilimani</p>
+                <span>KES 35,000/month</span>
+            </div>
+        </div>
+        <div class="property-card">
+            <img src="/images/365308191.jpg" alt="House 3">
+            <div class="property-info">
+                <h3>2-Bedroom Modern Apartment</h3>
+                <p>2 Bedrooms | Fitted Kitchen | Westlands</p>
+                <span>KES 60,000/month</span>
+            </div>
+        </div>
+        <div class="property-card">
+            <img src="/images/PIC-42.jpg" alt="House 3">
+            <div class="property-info">
+                <h3>3-Bedroom Bungalow</h3>
+                <p>3 Bedrooms | Private Compound | Thika Road</p>
+                <span>KES 85,000/month</span>
+            </div>
+        </div>
+        <div class="property-card">
+            <img src="/images/3-bedroom-bungalow.webp" alt="House 3">
+            <div class="property-info">
+                <h3>1-Bedroom Cottage</h3>
+                <p>1 Bedroom | Solar Heating | Karen</p>
+                <span>KES 40,000/month</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    &copy; 2025 House Rental. All Rights Reserved.
+</footer>
+
+</body>
+</html>

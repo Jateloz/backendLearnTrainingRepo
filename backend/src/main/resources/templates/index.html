@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>House Rental - Welcome</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #fff);
+      color: #333;
+    }
+    header {
+      background: linear-gradient(135deg, #2c3e50, #3498db);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    nav {
+      margin-top: 10px;
+    }
+    nav a {
+      color: #f1f1f1;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #ffd700;
+    }
+    .hero {
+      padding: 60px 20px;
+      text-align: center;
+      background: url('https://images.unsplash.com/photo-1572120360610-d971b9d7767c') no-repeat center center/cover;
+      color: white;
+    }
+    .hero h2 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    }
+    .hero p {
+      font-size: 1.3rem;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    }
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 50px 20px;
+      background: #f4f7f9;
+    }
+    .feature {
+      flex: 1 1 300px;
+      max-width: 320px;
+      margin: 20px;
+      padding: 30px;
+      border-radius: 12px;
+      background: white;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .feature:hover {
+      transform: translateY(-5px);
+    }
+    .feature h3 {
+      color: #3498db;
+      margin-bottom: 10px;
+    }
+    footer {
+      background: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Welcome to House Rental</h1>
+  <nav>
+    <a th:href="@{/}">Home</a>
+    <a th:href="@{/about}">About</a>
+    <a th:href="@{properties}">Properties</a>
+    <a th:href="@{/booking}">Book</a>
+    <a th:href="@{/contact}">Contact</a>
+    <a th:href="@{/logout}">Logout</a>
+    <a th:href="@{/payment}">Payment</a>
+    <a th:href="@{/reports}">Reports</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>Find Your Dream Home</h2>
+  <p>Rent beautiful houses in the most serene locations</p>
+</section>
+
+<section class="features">
+  <div class="feature">
+    <h3>Affordable Rentals</h3>
+    <p>Browse houses at competitive prices tailored for your budget.</p>
+  </div>
+  <div class="feature">
+    <h3>Luxury Amenities</h3>
+    <p>Discover homes with modern amenities including pools, gyms, and gardens.</p>
+  </div>
+  <div class="feature">
+    <h3>Secure Booking</h3>
+    <p>Enjoy a seamless, safe, and fast booking experience online.</p>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 House Rental. All Rights Reserved.
+</footer>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Login - House Rental</title>
+    <style>
+        body {
+          margin: 0;
+          font-family: 'Segoe UI', sans-serif;
+          background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+          color: #fff;
+          display: flex;
+          flex-direction: column;
+          min-height: 100vh;
+        }
+        header {
+          padding: 40px 20px;
+          text-align: center;
+          background: rgba(0, 0, 0, 0.3);
+        }
+        nav a {
+          color: #fff;
+          margin: 0 14px;
+          text-decoration: none;
+          font-weight: bold;
+        }
+        nav a:hover {
+          text-decoration: underline;
+        }
+        .login-container {
+          flex: 1;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .login-box {
+          background: rgba(255, 255, 255, 0.05);
+          padding: 40px;
+          border-radius: 16px;
+          box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+          width: 100%;
+          max-width: 400px;
+        }
+        .login-box h2 {
+          margin-bottom: 30px;
+          text-align: center;
+          color: #90caf9;
+        }
+        label {
+          display: block;
+          margin-bottom: 6px;
+          font-weight: 600;
+          color: #bbdefb;
+        }
+        input {
+          width: 100%;
+          padding: 12px;
+          margin-bottom: 20px;
+          border: none;
+          border-radius: 8px;
+          background: #263238;
+          color: #fff;
+          font-size: 1rem;
+          box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.1);
+        }
+        input:focus {
+          outline: none;
+          box-shadow: 0 0 10px #64b5f6;
+        }
+        button {
+          width: 100%;
+          padding: 14px;
+          background: #2196f3;
+          border: none;
+          border-radius: 8px;
+          color: white;
+          font-size: 1.1rem;
+          cursor: pointer;
+          transition: background 0.3s;
+        }
+        button:hover {
+          background: #1976d2;
+        }
+        footer {
+          text-align: center;
+          padding: 20px;
+          background: rgba(0, 0, 0, 0.4);
+          color: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Login to Your Account</h1>
+    <nav>
+        <a th:href="@{/login}">Login</a>
+        <a th:href="@{/register}">Register</a>
+    </nav>
+</header>
+
+<div class="login-container">
+    <div class="login-box">
+        <h2>Welcome Back</h2>
+        <form action="/loginUser" method="post">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</div>
+
+<footer>
+    &copy; 2025 House Rental. All Rights Reserved.
+</footer>
+
+</body>
+</html>

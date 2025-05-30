@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Payment Successful</title>
+    <style>
+        body {
+          margin: 0;
+          font-family: 'Segoe UI', sans-serif;
+          background: linear-gradient(to right, #43cea2, #185a9d);
+          color: #fff;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          animation: fadeIn 1.2s ease-in;
+        }
+
+        @keyframes fadeIn {
+          0% { opacity: 0; transform: scale(0.95); }
+          100% { opacity: 1; transform: scale(1); }
+        }
+
+        .success-box {
+          background: rgba(255, 255, 255, 0.1);
+          padding: 40px;
+          border-radius: 20px;
+          text-align: center;
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .success-box h1 {
+          font-size: 2.4rem;
+          color: #e0f7fa;
+          margin-bottom: 20px;
+        }
+
+        .success-box p {
+          font-size: 1.2rem;
+          color: #d0f0ff;
+          margin-bottom: 30px;
+        }
+
+        .success-box .checkmark {
+          font-size: 80px;
+          color: #00e676;
+          animation: bounce 1s ease infinite alternate;
+        }
+
+        @keyframes bounce {
+          from { transform: translateY(0); }
+          to { transform: translateY(-10px); }
+        }
+
+        .back-btn {
+          padding: 12px 30px;
+          background: #00e676;
+          color: #004d40;
+          border: none;
+          border-radius: 10px;
+          font-size: 1rem;
+          font-weight: bold;
+          text-decoration: none;
+          transition: background 0.3s, transform 0.2s;
+        }
+
+        .back-btn:hover {
+          background: #00c853;
+          transform: scale(1.05);
+        }
+
+          button {
+          width: 100%;
+          padding: 16px;
+          background: #1de9b6;
+          border: none;
+          font-size: 1.2rem;
+          font-weight: bold;
+          color: #004d40;
+          border-radius: 10px;
+          cursor: pointer;
+          transition: background 0.3s ease, transform 0.2s ease;
+        }
+    </style>
+</head>
+<body>
+<div class="success-box">
+    <div class="checkmark">✔</div>
+    <h1>Payment Successful!</h1>
+    <p>Thank you for your payment. Your booking is now confirmed.</p>
+    <a th:href="@{/}"><button>Back to Home</button></a>
+</div>
+</body>
+</html>

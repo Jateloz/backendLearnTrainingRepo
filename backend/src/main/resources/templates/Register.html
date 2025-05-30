@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Register - House Rental</title>
+    <style>
+        body {
+          margin: 0;
+          font-family: 'Segoe UI', sans-serif;
+          background: linear-gradient(to right, #d1c4e9, #ede7f6);
+          color: #4a148c;
+          display: flex;
+          flex-direction: column;
+          min-height: 100vh;
+        }
+        header {
+          background: linear-gradient(to right, #7b1fa2, #512da8);
+          color: white;
+          padding: 40px 20px;
+          text-align: center;
+        }
+        nav a {
+          color: white;
+          margin: 0 14px;
+          text-decoration: none;
+          font-weight: bold;
+        }
+        nav a:hover {
+          text-decoration: underline;
+        }
+        .register-container {
+          flex: 1;
+          max-width: 600px;
+          background: white;
+          margin: 50px auto;
+          padding: 40px;
+          border-radius: 16px;
+          box-shadow: 0 8px 25px rgba(81, 45, 168, 0.2);
+        }
+        h2 {
+          text-align: center;
+          margin-bottom: 30px;
+          color: #6a1b9a;
+        }
+        label {
+          display: block;
+          margin-bottom: 6px;
+          font-weight: 600;
+          color: #4a148c;
+        }
+        input {
+          width: 100%;
+          padding: 12px;
+          margin-bottom: 20px;
+          border: 1px solid #ce93d8;
+          border-radius: 10px;
+          font-size: 1rem;
+          background: #f3e5f5;
+          color: #4a148c;
+        }
+        input:focus {
+          outline: none;
+          border-color: #ab47bc;
+          background: #ede7f6;
+          box-shadow: 0 0 8px rgba(171, 71, 188, 0.3);
+        }
+        button {
+          width: 100%;
+          background: #8e24aa;
+          color: white;
+          border: none;
+          padding: 14px;
+          border-radius: 10px;
+          font-size: 1.1rem;
+          cursor: pointer;
+          transition: background 0.3s ease;
+        }
+        button:hover {
+          background: #6a1b9a;
+        }
+        footer {
+          background: #4a148c;
+          color: white;
+          text-align: center;
+          padding: 20px;
+          margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Create an Account</h1>
+    <nav>
+        <a th:href="@{/login}">Login</a>
+        <a th:href="@{/register}">Register</a>
+    </nav>
+</header>
+
+<div class="register-container">
+    <h2>Register Now</h2>
+    <form action="/createAccount" method="post">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="e.g. Jatelo Kwach" required>
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="e.g. jatelo@example.com" required>
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="e.g. +254712345678" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="confirm">Confirm Password</label>
+        <input type="password" id="confirm" name="confirm" required>
+
+        <button type="submit">Create Account</button>
+    </form>
+</div>
+
+<footer>
+    &copy; 2025 House Rental. All Rights Reserved.
+</footer>
+
+</body>
+</html>

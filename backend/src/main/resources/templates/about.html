@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - House Rental</title>
+    <style>
+        body {
+          margin: 0;
+          font-family: 'Helvetica Neue', sans-serif;
+          background: linear-gradient(to bottom, #fff0e6, #fffcf7);
+          color: #333;
+        }
+        header {
+          background: linear-gradient(135deg, #ff7e5f, #feb47b);
+          color: white;
+          padding: 40px 20px;
+          text-align: center;
+        }
+        nav a {
+          color: white;
+          margin: 0 15px;
+          text-decoration: none;
+          font-weight: bold;
+        }
+        nav a:hover {
+          text-decoration: underline;
+        }
+        .content {
+          max-width: 1000px;
+          margin: 50px auto;
+          padding: 0 20px;
+        }
+        .content h2 {
+          font-size: 2.5rem;
+          color: #d35400;
+          margin-bottom: 10px;
+        }
+        .content p {
+          line-height: 1.8;
+          font-size: 1.1rem;
+          margin-bottom: 20px;
+        }
+        .team {
+          display: flex;
+          gap: 30px;
+          flex-wrap: wrap;
+          margin-top: 40px;
+        }
+        .member {
+          flex: 1 1 300px;
+          background: white;
+          border-radius: 10px;
+          padding: 20px;
+          text-align: center;
+          box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .member img {
+          width: 100px;
+          height: 100px;
+          object-fit: cover;
+          border-radius: 50%;
+          margin-bottom: 10px;
+        }
+        .member h4 {
+          margin: 0;
+          color: #e67e22;
+        }
+        .member p {
+          font-size: 0.95rem;
+          color: #666;
+        }
+        footer {
+          background: #2c3e50;
+          color: white;
+          padding: 20px;
+          text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>About House Rental</h1>
+    <nav>
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/about}">About</a>
+        <a th:href="@{properties}">Properties</a>
+        <a th:href="@{/booking}">Book</a>
+        <a th:href="@{/contact}">Contact</a>
+        <a th:href="@{/payment}">Payment</a>
+        <a th:href="@{/reports}">Reports</a>
+    </nav>
+</header>
+
+<section class="content">
+    <h2>Who We Are</h2>
+    <p>At House Rental, we believe everyone deserves to find a perfect home. Whether you're a student, professional, or family looking for temporary or long-term housing, our platform makes renting easy and secure.</p>
+
+    <p>Founded in 2025, our team has helped thousands of renters find quality homes across the region. We pride ourselves on transparency, ease of use, and excellent customer service.</p>
+
+    <h2>Meet Our Team</h2>
+    <div class="team">
+        <div class="member">
+            <img src="/images/IMG-20250508-WA0008.jpg" alt="Team member">
+            <h4>Susan Odindo</h4>
+            <p>CEO & Founder</p>
+        </div>
+        <div class="member">
+            <img src="/images/IMG-20250412-WA0010.jpg" alt="Team member">
+            <h4>Jenike Odindo</h4>
+            <p>Head of Operations</p>
+        </div>
+        <div class="member">
+            <img src="/images/IMG_20240717_150729.jpg" alt="Team member">
+            <h4>Jatelo Odindo</h4>
+            <p>Lead Developer</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    &copy; 2025 House Rental. All Rights Reserved.
+</footer>
+
+</body>
+</html>
